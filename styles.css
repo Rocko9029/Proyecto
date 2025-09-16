@@ -1,25 +1,11 @@
-
+/* ===== RESET ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
-li button {
-    background-color: #bfa046; 
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-li button:hover {
-    background-color: #9a7d2f; 
-}
-
-
+/* ===== BASE ===== */
 body {
     font-family: 'Segoe UI', sans-serif;
     line-height: 1.6;
@@ -27,37 +13,45 @@ body {
     color: #2c2c2c;
 }
 
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
+/* ===== HEADER ===== */
+.titulo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
 
 header {
     background: #1a1a1a;
     color: #f5f5f5;
     padding: 1rem 0;
-    position: sticky;
-    top: 0;             
-    z-index: 1000;      
 }
 
 .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
 }
 
+.logo {
+    width: 60px;
+    height: auto;
+    border-radius: 8px;
+}
 
+/* ===== NAV ===== */
 nav ul {
     display: flex;
     list-style: none;
-}
-
-nav li {
-    margin-left: 20px;
+    gap: 20px;
 }
 
 nav a {
@@ -65,18 +59,34 @@ nav a {
     text-decoration: none;
     transition: 0.3s;
 }
+
 nav a:hover {
-    color: #bfa046; 
+    color: #bfa046;
 }
 
+.btn-download {
+    background-color: #bfa046;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.btn-download:hover {
+    background-color: #9a7d2f;
+}
+
+/* ===== MAIN ===== */
 main {
+    margin-top: 120px;
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 30px;
-    margin: 30px 0;
+    margin-bottom: 30px;
 }
 
-
+/* ===== ARTICLES ===== */
 article {
     background: white;
     margin-bottom: 30px;
@@ -85,8 +95,16 @@ article {
     overflow: hidden;
     transition: transform 0.3s;
 }
+
 article:hover {
     transform: translateY(-3px);
+}
+
+.post-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
 }
 
 .article-meta {
@@ -95,30 +113,14 @@ article:hover {
     margin: 10px 0;
 }
 
-aside {
-    background: #fafafa;
+.article-content {
     padding: 20px;
-    border-left: 3px solid #bfa046;
-    border-radius: 8px;
 }
-
-
-footer {
-    background: #1a1a1a;
-    color: #f5f5f5;
-    text-align: center;
-    padding: 20px 0;
-}
-
-
-.search-form {
-    margin: 20px 0;
-}
-
 
 .tags {
     margin: 10px 0;
 }
+
 .tag {
     background: #bfa046;
     color: white;
@@ -128,9 +130,119 @@ footer {
     font-size: 0.8em;
 }
 
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    color: #bfa046;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-img {
-    border-radius: 12px;
-    width: 100px;
-    padding-left: 5px;
+.read-more:hover {
+    color: #9a7d2f;
+}
+
+/* ===== ASIDE ===== */
+aside {
+    background: #fafafa;
+    padding: 20px;
+    border-left: 3px solid #bfa046;
+    border-radius: 8px;
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+aside ul li {
+    margin: 8px 0;
+}
+
+/* ===== FORMS ===== */
+form input,
+form button {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    background: #bfa046;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+    border: none;
+}
+
+form button:hover {
+    background: #9a7d2f;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #1a1a1a;
+    color: #f5f5f5;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer a {
+    color: #bfa046;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ===== SCROLL OFFSET ===== */
+#inicio {
+    scroll-margin-top: 120px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo {
+        width: 50px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 0.95rem;
+    }
+
+    .logo {
+        width: 40px;
+    }
+
+    .btn-download {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    aside {
+        border-left: none;
+        border-top: 3px solid #bfa046;
+        margin-top: 20px;
+    }
 }
